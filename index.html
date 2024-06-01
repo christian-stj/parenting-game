@@ -10,12 +10,18 @@
             display: flex;
             justify-content: center;
             height: 100vh;
-            margin: 100px;
+            margin: 10px;
+            @media (min-width: 900px) {
+                margin: 100px;
+            }
             font-family: Arial, sans-serif;
         }
         #container {
             text-align: left;
-            width: 50%;
+            width: 100%;
+            @media (min-width: 900px) {
+                width: 50%;
+            }
         }
         label {
             display: block;
