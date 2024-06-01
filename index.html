@@ -47,13 +47,16 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        a {
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <div id="container">
         <h1>Parenting Game</h1>
         <p>You are parenting a teenager. Your goal is to make them feel better. Good luck!</p>
-        <label for="api-key" id="api-key-label">Enter your OpenAI API Key (Paid API subscription required):</label>
+        <label for="api-key" id="api-key-label">Enter your OpenAI API Key (Paid API subscription required): <a href="https://platform.openai.com/api-keys" target="_blank">Get API Key</a></label>
         <input type="text" id="api-key" placeholder="API Key">
         <button onclick="setApiKey()">Set API Key</button>
 
