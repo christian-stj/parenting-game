@@ -10,7 +10,7 @@
             display: flex;
             justify-content: center;
             height: 100vh;
-            margin: 10px;
+            margin: 20px;
             @media (min-width: 900px) {
                 margin: 100px;
             }
@@ -30,6 +30,12 @@
         }
         #history {
             line-height: 2;
+        }
+        input {
+            width: 100%;
+            border-radius: 5px;
+            padding: 4px;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -61,14 +67,30 @@
             function setApiKey() {
                 apiKey = document.getElementById('api-key').value;
                 if (apiKey) {
-                    document.getElementById('interaction-section').style.display = 'block';
-                    document.getElementById('api-key').style.visibility = 'hidden';
-                    document.getElementById('api-key-label').style.visibility = 'hidden';
-                    event.target.style.visibility = 'hidden';
+                    document.cookie = `apiKey=${apiKey};path=/`;
+                    hideApiKeyElements();
+                } else if (document.cookie.includes('apiKey=')) {
+                    hideApiKeyElements();
                 } else {
                     alert("Please enter an API key.");
                 }
             }
+
+            function hideApiKeyElements() {
+                document.getElementById('interaction-section').style.display = 'block';
+                document.getElementById('api-key').style.visibility = 'hidden';
+                document.getElementById('api-key-label').style.visibility = 'hidden';
+                document.querySelector('button[onclick="setApiKey()"]').style.visibility = 'hidden';
+            }
+
+            function checkApiKeyOnLoad() {
+                if (document.cookie.includes('apiKey=')) {
+                    hideApiKeyElements();
+                    apiKey = document.cookie.split('=')[1];
+                }
+            }
+
+            window.onload = checkApiKeyOnLoad;
 
             async function interact() {
                 const playerInput = document.getElementById('player-input').value;
