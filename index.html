@@ -77,7 +77,7 @@
             function setApiKey() {
                 apiKey = document.getElementById('api-key').value;
                 if (apiKey) {
-                    document.cookie = `apiKey=${apiKey};path=/`;
+                    document.cookie = `apiKey=${apiKey};path=/;max-age=31536000`;
                     hideApiKeyElements();
                 } else if (document.cookie.includes('apiKey=')) {
                     hideApiKeyElements();
