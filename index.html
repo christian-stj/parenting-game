@@ -35,6 +35,7 @@
             width: 100%;
             border-radius: 5px;
             padding: 4px;
+            margin-bottom: 10px;
             box-sizing: border-box;
         }
     </style>
@@ -44,8 +45,8 @@
         <h1>Parenting Game</h1>
         <p>You are parenting a teenager. Your goal is to make them feel better. Good luck!</p>
         <label for="api-key" id="api-key-label">Enter your OpenAI API Key (Paid API subscription required):</label>
-        <input type="text" id="api-key" placeholder="API Key"><br><br>
-        <button onclick="setApiKey()">Set API Key</button><br><br>
+        <input type="text" id="api-key" placeholder="API Key">
+        <button onclick="setApiKey()">Set API Key</button>
 
 
 
@@ -78,9 +79,9 @@
 
             function hideApiKeyElements() {
                 document.getElementById('interaction-section').style.display = 'block';
-                document.getElementById('api-key').style.visibility = 'hidden';
-                document.getElementById('api-key-label').style.visibility = 'hidden';
-                document.querySelector('button[onclick="setApiKey()"]').style.visibility = 'hidden';
+                document.getElementById('api-key').style.display = 'none';
+                document.getElementById('api-key-label').style.display = 'none';
+                document.querySelector('button[onclick="setApiKey()"]').style.display = 'none';
             }
 
             function checkApiKeyOnLoad() {
